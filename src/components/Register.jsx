@@ -6,7 +6,7 @@ import UpdateTitle from "../Hooks/UpdateTitle";
 import Swal from "sweetalert2";
 import {
   GoogleAuthProvider,
-  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import auth from "../Firebase/Firebase";
@@ -42,7 +42,7 @@ const Register = () => {
     });
 
     // create user
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((user) => {
         if (user) {
           Swal.close();
@@ -56,16 +56,16 @@ const Register = () => {
   };
 
   // social login method
-  const handleGoogleSigin = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth)
-      .then((result) => {
-        if (result?.user) {
-          navigate(from, { replace: true });
-        }
-      })
-      .catch((error) => console.log(err.message));
-  };
+  //   const handleGoogleSigin = () => {
+  //     const provider = new GoogleAuthProvider();
+  //     signInWithPopup(auth)
+  //       .then((result) => {
+  //         if (result?.user) {
+  //           navigate(from, { replace: true });
+  //         }
+  //       })
+  //       .catch((error) => console.log(err.message));
+  //   };
 
   return (
     <div className="w-full px-4 md:px-auto mt-2 md:mt-0 pb-20">
@@ -200,7 +200,7 @@ const Register = () => {
           value="Register"
         />
       </form>
-      <p className="text-center">Sign in with </p>
+      {/* <p className="text-center mt-10">Sign in with </p>
       <div className="my-4 max-w-[32rem] w-full mx-auto flex items-center justify-center gap-5">
         <button
           onClick={handleGoogleSigin}
@@ -209,7 +209,7 @@ const Register = () => {
           <FaGoogle className="w-10 h-10 p-1" />{" "}
           <span className="px-2">Google</span>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
+import UseAuthcontext from "../Hooks/UseAuthcontext";
+import { signOut } from "firebase/auth";
+import auth from "../Firebase/Firebase";
 
 const Navbar = () => {
+  const { user, loading } = UseAuthcontext();
   const [showMenu, setShowMenu] = useState(true);
   const [theme, setTheme] = useState("light");
-  const loading = false;
-  // const user = { displayName: "John", email: "john@gmail.com" };
 
-  const user = null;
   //  Dark and Light mode functionality
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
@@ -16,9 +17,9 @@ const Navbar = () => {
   };
 
   const handleLogOut = () => {
-    console.log("logout btn working");
+    signOut(auth);
   };
-
+  console.log(loading);
   const listItems = (
     <>
       <li className="link-style">

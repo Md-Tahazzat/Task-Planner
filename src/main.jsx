@@ -10,6 +10,7 @@ import UpdateTask from "./components/UpdateTask.jsx";
 import AuthProvider from "./Provider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Register from "./components/Register";
+import Login from "./components/Login";
 
 // Main route for navigation
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: "login",
+        element: <Login></Login>,
       },
       {
         path: "register",

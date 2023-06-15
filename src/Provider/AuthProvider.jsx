@@ -6,15 +6,16 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      if (currentUser?.email) {
-        fetch("http://localhost:5000/", {
+      console.log("current user, ", currentUser);
+      if (currentUser) {
+        fetch("http://localhost:5000/user", {
           method: "POST",
           headers: {
-            "Content-Typer": "Application/json",
+            "Content-Type": "application/json", // Corrected header spelling
           },
           body: JSON.stringify({ email: currentUser.email }),
         })
@@ -22,8 +23,10 @@ const AuthProvider = ({ children }) => {
           .then((data) => {
             console.log(data);
             localStorage.setItem("access-token", data?.token);
+            setLoading(false);
           });
       }
+      setUser(currentUser);
       console.log(currentUser);
     });
 
@@ -32,6 +35,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
