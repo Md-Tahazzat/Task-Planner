@@ -44,7 +44,7 @@ const AddTask = () => {
   return (
     <div>
       <form
-        className="border mt-10 md:mt-16 md:min-w-[28rem] mx-auto md:max-w-[44rem] p-4 w-full md:py-5 text-slate-800 dark:text-slate-200 md:px-20 bg-slate-300/90 dark:bg-slate-700/90 border-slate-300 dark:border-slate-600 rounded-md"
+        className="border mt-10 mx-auto md:mt-16 md:min-w-[28rem] md:max-w-[42rem] p-4 w-full md:py-5 text-slate-800 dark:text-slate-200 md:px-20 bg-slate-300/90 dark:bg-slate-700/90 border-slate-300 dark:border-slate-600 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-center text-2xl font-semibold ">Add your task</h1>
@@ -85,7 +85,7 @@ const AddTask = () => {
           />
         </div>
         <input
-          className="w-full mt-6 py-2 max-w-md  bg-blue-600 rounded-md text-white text-xl hover:bg-blue-700"
+          className="w-full max-w-lg mt-6 py-2 bg-orange-400 rounded  text-slate-50 hover:bg-orange-500 duration-200 shadow-lg"
           type="submit"
           value="Add Task"
         />
