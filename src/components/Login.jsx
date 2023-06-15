@@ -61,13 +61,13 @@ const Login = () => {
   // };
 
   return (
-    <div className="w-full px-4 md:px-auto mt-2 md:mt-0 pb-20">
-      <UpdateTitle title="LogIn"></UpdateTitle>;
+    <div className="w-screen h-screen flex items-center justify-center">
+      <UpdateTitle title="LogIn"></UpdateTitle>
       <form
         className="border md:min-w-[28rem] mx-auto md:max-w-[32rem] p-4 w-full md:py-5 md:px-20 bg-slate-300/90 dark:bg-slate-700/90 border-slate-300 dark:border-slate-600 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-center text-2xl font-semibold ">Please !!</h1>
+        <h1 className="text-center text-2xl font-semibold ">Please LogIn!!</h1>
         <div className="w-full">
           <label htmlFor="email" className="label">
             Email:
@@ -135,7 +135,7 @@ const Login = () => {
         <input
           className="w-full mt-4 py-2 max-w-md  bg-blue-600 rounded-md text-white text-xl hover:bg-blue-700"
           type="submit"
-          value="Register"
+          value="LogIn"
         />
       </form>
       {/* <p className="text-center mt-10">Sign in with </p>

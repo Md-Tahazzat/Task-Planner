@@ -11,6 +11,8 @@ import AuthProvider from "./Provider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Loading from "./components/Loading";
+import VerifyUser from "./VerifyUser/VerifyUser";
 
 // Main route for navigation
 const router = createBrowserRouter([
@@ -21,25 +23,38 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <AllTaks></AllTaks>,
+        element: (
+          <VerifyUser>
+            {" "}
+            <AllTaks></AllTaks>
+          </VerifyUser>
+        ),
       },
       {
         path: "add-task",
-        element: <AddTask></AddTask>,
+        element: (
+          <VerifyUser>
+            <AddTask></AddTask>
+          </VerifyUser>
+        ),
       },
       {
         path: "update",
-        element: <UpdateTask></UpdateTask>,
-      },
-      {
-        path: "login",
-        element: <Login></Login>,
-      },
-      {
-        path: "register",
-        element: <Register></Register>,
+        element: (
+          <VerifyUser>
+            <UpdateTask></UpdateTask>
+          </VerifyUser>
+        ),
       },
     ],
+  },
+  {
+    path: "login",
+    element: <Login></Login>,
+  },
+  {
+    path: "register",
+    element: <Register></Register>,
   },
 ]);
 
