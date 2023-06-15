@@ -19,7 +19,6 @@ const Navbar = () => {
   const handleLogOut = () => {
     signOut(auth);
   };
-  console.log(loading);
   const listItems = (
     <>
       <li className="link-style">

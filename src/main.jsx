@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "update",
+        path: "update/:id",
         element: (
           <VerifyUser>
             <UpdateTask></UpdateTask>

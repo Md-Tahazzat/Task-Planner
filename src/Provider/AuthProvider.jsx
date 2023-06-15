@@ -10,9 +10,8 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (currentUser) => {
-      console.log("current user, ", currentUser);
       if (currentUser) {
-        fetch("http://localhost:5000/user", {
+        fetch("https://task-management-server-vert.vercel.app/user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json", // Corrected header spelling
@@ -21,13 +20,11 @@ const AuthProvider = ({ children }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             localStorage.setItem("access-token", data?.token);
             setLoading(false);
           });
       }
       setUser(currentUser);
-      console.log(currentUser);
     });
 
     return () => unsubscribed();
