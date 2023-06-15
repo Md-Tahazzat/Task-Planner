@@ -44,6 +44,11 @@ const Login = () => {
         }
       })
       .catch((err) => {
+        Swal.close();
+        setError("password", {
+          type: "manual",
+          message: err.message,
+        });
         console.log(err);
       });
   };
